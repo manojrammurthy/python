@@ -15,7 +15,13 @@ def print_all_links(page):
             page = page[endpos:]
         else:
                 break
-print print_all_links('this <a href="test1">link 1</a> is <a href="test2">link2</a>a <a href="test3">link 3</a>')
-
+def get_page(url):
+    try:
+        import urllib
+        return urllib.urlopen(url).read()
+    except:
+            return ""
+#print print_all_links('this <a href="test1">link 1</a> is <a href="test2">link2</a>a <a href="test3">link 3</a>')
+print print_all_links(get_page('http://xkcd.com/353'))
                 
 #print get_next_target('this is a <a href="http://udacity.com">link!</a>')
